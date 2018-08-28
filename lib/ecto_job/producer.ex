@@ -20,7 +20,7 @@ defmodule EctoJob.Producer do
   @type schema :: module
   @type notifier :: pid
   @type timeout_ms :: non_neg_integer
-  @type always_dispatch_jobs_on_poll :: atom
+  @type always_dispatch_jobs_on_poll :: boolean
 
   defmodule State do
     @moduledoc """
@@ -80,7 +80,7 @@ defmodule EctoJob.Producer do
           poll_interval: non_neg_integer,
           reservation_timeout: timeout_ms(),
           execution_timeout: timeout_ms(),
-          always_dispatch_jobs_on_poll: atom
+          always_dispatch_jobs_on_poll: boolean
         ) :: {:ok, pid}
   def start_link(
         name: name,
