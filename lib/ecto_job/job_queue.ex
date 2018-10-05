@@ -153,6 +153,8 @@ defmodule EctoJob.JobQueue do
       def enqueue(multi, name, params, opts \\ []) do
         Multi.insert(multi, name, new(params, opts))
       end
+
+      defoverridable [enqueue: 3, enqueue: 4]
     end
   end
 
